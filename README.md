@@ -24,3 +24,19 @@ This repository contains the projects I completed during my **Python Programming
 ---
 
 ## 📂 Repository Structure
+OIBSIP/
+├── ChatApp/ # Project 1
+├── VoiceAssistant/ # Project 2
+├── WeatherApp/ # Project 3
+└── README.md # Overview
+
+## 🎥 Demo Videos
+Each project will have a **demo video link** shared on LinkedIn:
+- ChatApp: (To be added)
+- VoiceAssistant: (To be added)
+- WeatherApp: (To be added)
+
+---
+
+## 🏆 Internship
+This work is part of my **Oasis Infobyte Internship (OIBSIP)**, Batch: October 2025.
