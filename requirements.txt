@@ -1,0 +1,9 @@
+tkinter        # GUI
+requests       # API calls
+speechrecognition
+pyttsx3
+pyaudio
+nltk
+spacy
+matplotlib
+pillow         # for images/icons in GUI
