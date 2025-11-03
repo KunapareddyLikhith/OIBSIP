@@ -6,17 +6,17 @@ This repository contains the projects I completed during my **Python Programming
 
 ## 📌 Projects
 
-1. **Chat Application (Advanced)**
+1. **Chat Application**
    - Real-time chat with GUI
    - User authentication & multiple rooms
    - Multimedia sharing, message history, and notifications
 
-2. **Voice Assistant (Advanced)**
+2. **Voice Assistant**
    - Responds to voice commands
    - Provides time, date, weather updates
    - Can search web, send emails, and set reminders
 
-3. **Weather App (Advanced)**
+3. **Weather App**
    - Fetches real-time weather using API
    - GUI interface with forecasts and weather icons
    - Unit conversion & error handling
