@@ -30,12 +30,6 @@ OIBSIP/
 ├── WeatherApp/ # Project 3
 └── README.md # Overview
 
-## 🎥 Demo Videos
-Each project will have a **demo video link** shared on LinkedIn:
-- ChatApp: (To be added)
-- VoiceAssistant: (To be added)
-- WeatherApp: (To be added)
-
 ---
 
 ## 🏆 Internship
