@@ -3,7 +3,7 @@ import threading
 import tkinter as tk
 from tkinter import scrolledtext, messagebox
 
-HOST = '127.0.0.1/01'
+HOST = '127.0.0.1'
 PORT = 12345
 
 class ChatClient:
