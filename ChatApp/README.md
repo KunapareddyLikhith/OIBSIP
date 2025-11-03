@@ -14,12 +14,17 @@ It supports both a **command-line version** and a **Tkinter-based GUI version** 
 ✅ Clean and simple interface  
 ✅ **Threaded server** — handles all clients simultaneously  
 
----
+
 
 ## 🧩 Project Structure
 ChatApp/
 ├── server.py # Multi-client chat server
 ├── client.py # CLI client version
 └── client_gui.py # GUI client using Tkinter
+
+##working model Image
+<img width="1366" height="768" alt="ChatApp" src="https://github.com/user-attachments/assets/a17e90f5-ff53-4f06-a57a-1525b1f967fb" />
+
+
 
 #oasisinfobyte #oasisinfobytefamily #python #internship #oibsip #chatapplication #learningbydoing #projects
