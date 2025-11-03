@@ -5,16 +5,18 @@ import webbrowser
 import wikipedia
 import requests
 
-# Initialize the speech engine
+# Initialize the engine
 engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[0].id)  # Choose voice (0 = male, 1 = female)
+engine.setProperty('rate', 180)  # Speech speed
 
 def speak(text):
-    """Converts text to speech"""
+    print(f"Assistant: {text}")
     engine.say(text)
     engine.runAndWait()
 
 def greet_user():
-    """Greets the user based on the current time"""
     hour = datetime.datetime.now().hour
     if hour < 12:
         speak("Good morning!")
@@ -22,10 +24,9 @@ def greet_user():
         speak("Good afternoon!")
     else:
         speak("Good evening!")
-    speak("I am your Voice Assistant. How can I help you today?")
+    speak("I am your voice assistant. How can I help you today?")
 
 def take_command():
-    """Takes voice input from the user and returns text"""
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
@@ -34,26 +35,28 @@ def take_command():
     try:
         print("Recognizing...")
         query = r.recognize_google(audio, language='en-in')
-        print(f"You said: {query}")
+        print(f"You said: {query}\n")
     except Exception:
-        speak("Sorry, I didn't catch that. Please repeat.")
+        speak("Sorry, I didn't catch that. Could you please repeat?")
         return "None"
     return query.lower()
 
 def get_weather(city):
-    """Fetches weather details using OpenWeatherMap API"""
-    api_key = "YOUR_API_KEY"  # Replace with your OpenWeatherMap key
+    api_key = "YOUR_API_KEY"  # Replace this with your OpenWeatherMap key
     base_url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
     response = requests.get(base_url)
     data = response.json()
+
     if data["cod"] == 200:
-        main = data["main"]
-        speak(f"The temperature in {city} is {main['temp']} degree Celsius with {data['weather'][0]['description']}.")
+        temp = data["main"]["temp"]
+        desc = data["weather"][0]["description"]
+        speak(f"The temperature in {city} is {temp} degrees Celsius with {desc}.")
     else:
         speak("Sorry, I couldn't find that city.")
 
 def main():
     greet_user()
+
     while True:
         query = take_command()
 
@@ -64,28 +67,28 @@ def main():
             speak(results)
 
         elif 'open youtube' in query:
-            webbrowser.open("https://youtube.com")
             speak("Opening YouTube")
+            webbrowser.open("https://youtube.com")
 
         elif 'open google' in query:
-            webbrowser.open("https://google.com")
             speak("Opening Google")
+            webbrowser.open("https://google.com")
 
         elif 'time' in query:
-            strTime = datetime.datetime.now().strftime("%H:%M")
-            speak(f"The time is {strTime}")
+            time = datetime.datetime.now().strftime("%I:%M %p")
+            speak(f"The current time is {time}")
 
         elif 'weather' in query:
             speak("Please tell me the city name.")
             city = take_command()
             get_weather(city)
 
-        elif 'exit' in query or 'quit' in query:
-            speak("Goodbye! Have a nice day.")
+        elif 'exit' in query or 'quit' in query or 'stop' in query:
+            speak("Goodbye, have a great day!")
             break
 
         else:
-            speak("Sorry, I didn't understand that.")
+            speak("Sorry, I didn't understand that command.")
 
 if __name__ == "__main__":
     main()
